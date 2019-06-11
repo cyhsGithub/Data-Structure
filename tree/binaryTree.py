@@ -33,7 +33,7 @@ class BinaryTree:
             temp = BinaryTree(new)
             temp.left = self.left
             self.left = temp
-            temp.father = self.left
+            temp.father = self
             temp.left.father = temp
 
     def insertRight(self, new):
@@ -44,7 +44,7 @@ class BinaryTree:
             temp = BinaryTree(new)
             temp.right = self.right
             self.right = temp
-            temp.father = self.right
+            temp.father = self
             temp.left.father = temp
 
     def clone(self):
@@ -85,7 +85,6 @@ def pre_order(tree):
 def width_first(tree):
     qu = Queue()
     qu.enqueue(tree)
-    print(qu.is_empty())
 
     while not qu.is_empty():
         t = qu.dequeue()
@@ -106,9 +105,9 @@ def build_tree():
     tree.right.insertRight('f')
     return tree
 
-tree = build_tree()
-w = width_first(tree)
-print(list(w))
+# tree = build_tree()
+# w = width_first(tree)
+# print(list(w))
 # depth_first(tree)
 # pre_order(tree)
 # print(depth)
