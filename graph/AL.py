@@ -8,6 +8,8 @@ class GraphAL(Graph):
             self.mat = [i[:] for i in Alist]
         elif mat:
             self.mat = [Graph.out(i, unconn) for i in mat]
+        else:
+            return "Wrong parameters"
 
         self.vnum = vnum
         self.unconn = unconn
