@@ -8,6 +8,12 @@ class Graph:
         self.unconn = unconn
         self.vnum = vnum
 
+    def get_mat(self):
+        return self.mat
+
+    def update_mat(self, new):
+        self.mat = new
+
     def vertex_num(self):
         return self.vnum
 
@@ -32,9 +38,9 @@ class Graph:
     @staticmethod
     def out(row,unconn):
         edges = []
-        for i,v in enumerate(row):
-            if v != unconn:
-                edges.append((i,v))
+        for i,value in enumerate(row):
+            if value != unconn and value != 0:
+                edges.append((i,value))
         return edges
 
 
