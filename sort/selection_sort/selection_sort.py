@@ -10,8 +10,8 @@ def selection_sort(li):
                 s = i
         li[s],li[n] = li[n],li[s]
 
-    return li
+    # return li
 
 li = [1, 5, 8, 0, 123, 22, 1, 54, 7, 99, 300, 222]
-li = selection_sort(li)
+selection_sort(li)
 print(li)

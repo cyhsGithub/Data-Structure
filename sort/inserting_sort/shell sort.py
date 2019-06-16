@@ -3,9 +3,8 @@
 def shell(li):
     delta = [5,3,1]
     for i in delta:
-        li = shell_insertionSort(li,i)
+        shell_insertionSort(li,i)
 
-    return li
 
 def shell_insertionSort(li,delta):
     for i in range(delta,len(li),delta):
@@ -19,8 +18,7 @@ def shell_insertionSort(li,delta):
             else:
                 break
 
-    return li
 
 li = [1, 5, 8, 0, 123, 22, 1, 54, 7, 99, 300, 222]
-li = shell(li)
+shell(li)
 print(li)
