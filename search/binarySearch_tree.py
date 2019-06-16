@@ -33,7 +33,6 @@ class BinarySearchTree:
                 return
 
     def build(self,li):
-        random.shuffle(li)
         for i in li:
             self.insert(i)
 

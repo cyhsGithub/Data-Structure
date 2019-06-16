@@ -25,6 +25,7 @@ def Kruskal(graph):
 # 设G=（V，E）是一个网络，U是V的一个任意真子集，e为G的一条边，一个端点在U里，另一个不在，
 # 而且e的权值与其他同情况的边相比最小，那么G必有一棵包括边e的最小生成树
 
+#也需要联通量列表 判断两点是否连通
 def prime(graph):
     vnum = graph.vertex_num()
     vertices = [0]
