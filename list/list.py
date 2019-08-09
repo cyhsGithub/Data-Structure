@@ -195,11 +195,10 @@ class LCList:
                 break
             p = p.next
 
-#
-# l = LCList()
-# l.append(1)
-# l.append(2)
-# l.append(3)
-# n = l.pop()
-# print(n)
-# l.printList()
+
+l = LinkedList()
+l.append(1)
+l.append(2)
+l.append(3)
+l.reverse()
+print(l.head.elem)

@@ -8,22 +8,23 @@ def merge_sort(li):
     l = merge(l1,l2)
     return l
 
-def merge(l1,l2):
-    result = []
-    length = len(l1) + len(l2)
-    while len(result) < length:
-        if len(l1) == 0:
-            result = result + l2
-        elif len(l2) == 0:
-            result = result + l1
-        elif l1[0] < l2[0]:
-            result.append(l1.pop(0))
-        elif l2[0] < l1[0]:
-            result.append(l2.pop(0))
-        elif l2[0] == l1[0]:
-            result.append(l1.pop(0))
-            result.append(l2.pop(0))
-    return result
+def merge(l1, l2):
+    index1 = len(l1) - 1
+    index2 = len(l2) - 1
+    l1.extend([0 for i in range(len(l2))])
+
+    while index2 >= 0:
+        if index1 < 0:
+            l1[0: index2+1] = l2[0:index2+1]
+            break
+        if l1[index1] < l2[index2]:
+            l1[index1 + index2 + 1] = l2[index2]
+            index2 -= 1
+        else:
+            l1[index1 + index2 + 1] = l1[index1]
+            index1 -= 1
+    return l1
+
 
 li = [1, 5, 8, 0, 123, 22, 1, 54, 7, 99, 300, 222]
 li = merge_sort(li)

@@ -12,6 +12,13 @@ def selection_sort(li):
 
     # return li
 
+# def selection(li):
+#     for i in range(len(li)):
+#         for n in range(len(li)-1, i, -1):
+#             if li[n] < li[n-1]:
+#                 li[n],li[n-1] = li[n-1],li[n]
+#     return li
+
 li = [1, 5, 8, 0, 123, 22, 1, 54, 7, 99, 300, 222]
 selection_sort(li)
 print(li)

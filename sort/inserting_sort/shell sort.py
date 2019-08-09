@@ -18,7 +18,16 @@ def shell_insertionSort(li,delta):
             else:
                 break
 
-
+# def shell(li):
+#     delta = [5,3,1]
+#
+#     for d in delta:
+#         for i in range(d, len(li), d):
+#             for n in range(i, 0, -d):
+#                 if li[n] < li[n-d]:
+#                     li[n], li[n - d] = li[n - d], li[n]
+#
+#     return li
 li = [1, 5, 8, 0, 123, 22, 1, 54, 7, 99, 300, 222]
 shell(li)
 print(li)

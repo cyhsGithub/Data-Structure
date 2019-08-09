@@ -19,14 +19,10 @@ class GraphAL(Graph):
             return False
 
         row = self.mat[vi]
-        i = 0
-        while i < len(row):
-            if row[i][0] == vj:
-                self.mat[vi][i] = (vj,val)
+        for i, v in enumerate(row):
+            if v[0] == vj:
+                self.mat[vi][i] = (vj, val)
                 return
-            if row[i][0] > vj:
-                break
-            i += 1
         self.mat[vi].append((vj,val))
 
     def get_edge(self,vi,vj):

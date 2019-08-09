@@ -61,5 +61,5 @@ def check_parens(s):
 
 
 
-# string = '([{asd}asgdh])'
-# print(check_parens(string))
+string = '([{asd}asgdh])'
+print(check_parens(string))

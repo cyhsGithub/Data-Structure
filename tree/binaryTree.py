@@ -72,9 +72,25 @@ def depth_first(tree):
     depth_first(tree.left)
     depth_first(tree.right)
 
+# no recursion
+# def depth_first(tree):
+#     res = []
+#     s = Stack()
+#     while tree:
+#         if tree.right:
+#             s.push(tree.right)
+#         if tree.left:
+#             s.push(tree.left)
+#
+#         res.append(tree.root)
+#         tree = s.pop()
+#         print(tree)
+#
+#     return res
+
 pre = []
 def pre_order(tree):
-    global width
+    global pre
     if tree is None:
         return
 
@@ -95,6 +111,62 @@ def width_first(tree):
         qu.enqueue(t.right)
         yield t.root
 
+# def width_first(tree):
+#     q = Queue()
+#     res = []
+#     while tree:
+#         q.enqueue(tree.left)
+#         q.enqueue(tree.right)
+#
+#         res.append(tree.root)
+#
+#         tree = q.dequeue()
+#     return res
+
+pre = ['v','a','c','d','b','e','f']
+in_ = ['c','a','d','v','e','b','f']
+
+def recover(pre, in_):
+    if not pre:
+        return None
+
+    tree = BinaryTree(pre.pop(0))
+    children = ''.join(in_).split(tree.root)
+    left = [i for i in pre if i in children[0]]
+    right = [i for i in pre if i in children[1]]
+
+    tree.left = recover(left, children[0])
+    tree.right = recover(right, children[1])
+
+    return tree
+new = recover(pre, in_)
+print(new)
+
+pre = ['v','a','c','d','b','e','f']
+in_ = ['c','a','d','v','e','b','f']
+def reConstructBinaryTree(pre, tin):
+    if not pre:
+        return None
+
+    tree = BinaryTree(pre.pop(0))
+    tinL = []
+    for i in tin:
+        if i != tree.root:
+            tinL.append(i)
+        else:
+            break
+    index = len(tinL)
+    tinR = [i for i in tin[index+1:]]
+
+    preL = [i for i in pre if i in tinL]
+    preR = [i for i in pre if i in tinR]
+
+    tree.left = reConstructBinaryTree(preL, tinL)
+    tree.right = reConstructBinaryTree(preR, tinR)
+
+    return tree
+new1 = reConstructBinaryTree(pre, in_)
+print(new1)
 def build_tree():
     tree = BinaryTree('v')
     tree.insertLeft('a')
