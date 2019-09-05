@@ -1,3 +1,4 @@
+# nlogn, 稳定
 def merge_sort(li):
     if len(li) <= 1:
         return li
@@ -15,7 +16,7 @@ def merge(l1, l2):
 
     while index2 >= 0:
         if index1 < 0:
-            l1[0: index2+1] = l2[0:index2+1]
+            l1[:index2+1] = l2[:index2+1]
             break
         if l1[index1] < l2[index2]:
             l1[index1 + index2 + 1] = l2[index2]
